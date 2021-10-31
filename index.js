@@ -6,11 +6,12 @@ const perguntas = [
 ]
 
 const fazerPergunta = (id = 0) => {
-    return process.stdout.write(perguntas[id] + "\n")
+    return process.stdout.write(perguntas[id] + "\n");
 }
 
 fazerPergunta()
 
 process.stdin.on("data", dados => {
     process.stdout.write(dados.toString().trim() + "\n");
+    process.exit();
 })
