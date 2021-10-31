@@ -1,17 +1,28 @@
 const perguntas = [
     "O que aprendi hoje ?",
-    "O que me deixou aborrecido ? O que eu podia fazer para melhorar ?",
-    "O que me deixou feliz hoje ?",
+    "Qual(is) dificuldades que tive hoje ? O que eu podia fazer para melhorar ?",
+    "O que me deixou motivado ?",
     "Quantas pessoas ajudei hoje ?",
 ]
 
 const fazerPergunta = (id = 0) => {
-    return process.stdout.write(perguntas[id] + "\n");
+    return process.stdout.write(perguntas[id] + "\n\n");
 }
 
-fazerPergunta()
+fazerPergunta();
+
+
+const respostas = [];
+var numeroDePerguntas;
 
 process.stdin.on("data", dados => {
-    process.stdout.write(dados.toString().trim() + "\n");
-    process.exit();
+    respostas.push(dados.toString().trim() + "\n")
+    if(respostas.length < perguntas.length){
+
+        numeroDePerguntas = respostas.length;
+        perguntas(numeroDePerguntas);
+    }else{
+        console.log(respostas);
+        process.exit();
+    }
 })
