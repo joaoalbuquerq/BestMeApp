@@ -6,21 +6,18 @@ const perguntas = [
 ]
 
 const fazerPergunta = (id = 0) => {
-    return process.stdout.write(perguntas[id] + "\n\n");
+    return process.stdout.write("\n\n" + perguntas[id] + " > ");
 }
 
 fazerPergunta();
 
 
 const respostas = [];
-var numeroDePerguntas;
 
 process.stdin.on("data", dados => {
-    respostas.push(dados.toString().trim() + '\n');
-    if(respostas.length < fazerPergunta.length){
-
-        numeroDePerguntas = respostas.length;
-        perguntas(numeroDePerguntas);
+    respostas.push(dados.toString().trim());
+    if(respostas.length < perguntas.length){
+        fazerPergunta(respostas.length);
     }else{
         console.log(respostas);
         process.exit();
