@@ -16,8 +16,8 @@ const respostas = [];
 var numeroDePerguntas;
 
 process.stdin.on("data", dados => {
-    respostas.push(dados.toString().trim() + "\n")
-    if(respostas.length < perguntas.length){
+    respostas.push(dados.toString().trim() + '\n');
+    if(respostas.length < fazerPergunta.length){
 
         numeroDePerguntas = respostas.length;
         perguntas(numeroDePerguntas);
