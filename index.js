@@ -19,7 +19,37 @@ process.stdin.on("data", dados => {
     if(respostas.length < perguntas.length){
         fazerPergunta(respostas.length);
     }else{
-        console.log(respostas);
         process.exit();
     }
+})
+
+process.on('exit', () => {
+
+console.log(`
+Obrigado pelo seu acesso de hoje!
+
+Vamos resumir um pouco sobre o seu progesso hoje!!
+
+O que aprendi hoje foi:
+${respostas[0]}
+
+A tua dificuldade e o que tu podia melhorar hoje foi: 
+${respostas[1]}
+
+O que te motivou hoje foi: 
+${respostas[2]}
+
+A quantidade de pessoas que você ajudou hoje foi: 
+${respostas[3]}
+
+
+
+Muito bacana ver o teu progresso de hoje!! Leia com atenção e reflita. 
+
+Se pergunte sempre: "Onde eu posso evoluir ?"
+
+Volte amanhã para mais reflexões.
+
+`)
+
 })
