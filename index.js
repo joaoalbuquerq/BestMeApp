@@ -10,3 +10,7 @@ const fazerPergunta = (id = 0) => {
 }
 
 fazerPergunta()
+
+process.stdin.on("data", dados => {
+    process.stdout.write(dados.toString().trim() + "\n");
+})
